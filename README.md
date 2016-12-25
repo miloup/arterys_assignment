@@ -19,10 +19,9 @@ In order for this cookbook to work, you will need the following:
 
 ## How to use this cookbook
 
-1- Change to the direcroty where you want to clone this repo (ex: cd /home/user/cookbooks)
-2- Clone this repo using: git clone https://github.com/miloup/arterys_assignment.git
-
-Before running 'chef-solo', you will need to execute the file first_scrspt.sh. This file will put together the necessary information and create the files needed to run 'chef-solo'. Also, make sure the file 'first_script.sh' has execute permission (chmod +x /path/to/first_script.sh)
+1. Change to the direcroty where you want to clone this repo (ex: cd /home/user/cookbooks).
+2. Clone this repo using: git clone https://github.com/miloup/arterys_assignment.git
+3. Before running 'chef-solo', you will need to execute the file first_scrspt.sh. This file will put together the necessary information and create the files needed to run 'chef-solo'. Also, make sure the file 'first_script.sh' has execute permission (chmod +x ./first_script.sh)
 
 
 
