@@ -1,3 +1,5 @@
 #!/bin/bash
-CURRENT_DIR=`pwd`
-PARENT_DIR="$(dirname "$dir")"
+PARENT_DIR="$(dirname `pwd`)"
+cat <<EOF > ./nodes/solo.rb
+cookbook_path "$PARENT_DIR"
+EOF
