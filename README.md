@@ -1,3 +1,7 @@
+## IMPORTANT !!!
+This cookbook has not been completed yet...
+
+
 # About this cookbook
 
 This cookbook installs/configures 'node-static' and nginx to display the chef-solo run output log on your browser. Node-static has been used to server the static file "some_chef_log" and Nginx as a reverse proxy with an SSL self-signed certifate along with an HTTP basic authentication.
