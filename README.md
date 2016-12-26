@@ -30,8 +30,8 @@ When executing **chef-solo**, the cookbook will do the following:
 3. Execute a bash script that will generate the SSL self-signed certificate
 4. Create _.htpasswd_ file that will contain the credentials from the attribute file _./attributes/default.rb_. You can have your own credentials by editing this file
 5. Restart nginx service so that the changes will take effect
-6. Install Node.js with the requires depencies for this project
-7. Install _node-static_ using _npm_
+6. Install Node.js with the required depencies for this project
+7. Install _node-static_ and _forever_ using _npm_
 8. Create _server.js_ under /tmp/ folder. This file contains the JavaScript script to tell node-static what to display
 
  
