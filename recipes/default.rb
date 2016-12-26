@@ -63,7 +63,8 @@ execute 'install forever' do
    command 'npm install -g forever'
 end
 
-execute 'Start node-static in daemon' do
-   user 'root'
-   command "forever start /tmp/server.js"
-end
+# The block below does starts 'forever' process but the page does not load. It work if the command is run manually on the server
+#execute 'Start node-static in daemon' do
+#   user 'root'
+#   command "forever start /tmp/server.js"
+#end
