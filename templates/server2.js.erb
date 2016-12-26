@@ -1,7 +1,7 @@
 // modules
 var static = require( 'node-static' ), port = 8080,http = require( 'http' );
 
-var file = new static.Server('./output.log');
+var file = new static.Server('/tmp/output.log');
 //Display the logfile
 require('http').createServer(function (request, response) {
     request.addListener('end', function () {
