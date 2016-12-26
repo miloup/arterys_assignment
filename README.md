@@ -1,10 +1,13 @@
-# IMPORTANT !!!
-This cookbook has not been completed yet...
-
-
 ## About this cookbook
 
 This cookbook installs/configures 'node-static' and nginx to display the chef-solo run output log on your browser. Node-static has been used to server the static file "some_chef_log" and Nginx as a reverse proxy with an SSL self-signed certifate along with an HTTP basic authentication.
+
+## Encountered issues
+
+For some reason, I was unable to serve the static file in Node.js in daemon mode after the chef run. 
+Methods used:
+  - nohup (bash)
+  - pm2 (npm)
 
 ## Supported Platforms
 
@@ -36,7 +39,8 @@ When executing **chef-solo**, the cookbook will do the following:
 1. Change to the direcroty where you want to clone this repo (ex: cd /home/user/cookbooks).
 2. Clone this repo using: **git clone https://github.com/miloup/arterys_assignment.git**
 3. Before running 'chef-solo', you will need to execute the file first_script.sh. This file will put together the necessary information and create the files needed to run 'chef-solo'. Also, make sure the file 'first_script.sh' has execute permission (chmod +x ./first_script.sh)
-4. Run chef-solo as follow: **chef-solo -c ./nodes/solo.rb -j ./nodes/file.json**
-
+4. Run chef-solo as follow: **chef-solo -c ./nodes/solo.rb -j ./nodes/file.json | tee /tmp/output.log**
+5. As explained in the section **Encountered issues**, I wasn't able to start node.js as daemon. You will need to do it manually by becoming root (**sudo su -**), cd to the /tmp folder (**cd /tmp**) and run node.js manually using the command: **nohup node server.js &**
+6. Open you browser and the ip of your current server: **https://some_ip**
 
 
