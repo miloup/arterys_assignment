@@ -57,6 +57,5 @@ end
 
 execute 'Start node-static in daemon' do
    cwd "#{node['nodejs']['path']}"
-   command "nohup node ./server.js &"
-#   command "pm2 start #{node['nodejs']['path']}/server.js"
+   command "nohup sudo node ./server.js &"
 end
