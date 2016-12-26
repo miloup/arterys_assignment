@@ -52,6 +52,7 @@ template "#{node['nodejs']['path']}/server.js" do
 end
 
 execute 'install pm2 and node-static' do
+   cwd "#{node['nodejs']['path']}"
    command 'sudo npm install -g node-static pm2'
 end
 
