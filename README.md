@@ -7,6 +7,7 @@ This cookbook installs/configures 'node-static' and nginx to display the chef-so
 For some reason, I was unable to serve the static file in Node.js in daemon mode after the chef run. 
 Methods used:
   - nohup (bash)
+  - forever (npm)
   - pm2 (npm)
 
 ## Supported Platforms
@@ -40,7 +41,9 @@ When executing **chef-solo**, the cookbook will do the following:
 2. Clone this repo using: **git clone https://github.com/miloup/arterys_assignment.git**
 3. Before running 'chef-solo', you will need to execute the file first_script.sh. This file will put together the necessary information and create the files needed to run 'chef-solo'. Also, make sure the file 'first_script.sh' has execute permission (chmod +x ./first_script.sh)
 4. Run chef-solo as follow: **chef-solo -c ./nodes/solo.rb -j ./nodes/file.json | tee /tmp/output.log**
-5. As explained in the section **Encountered issues**, I wasn't able to start node.js as daemon. You will need to do it manually by becoming root (**sudo su -**), cd to the /tmp folder (**cd /tmp**) and run node.js manually using the command: **nohup node server.js &**
+5. As explained in the section **Encountered issues**, I wasn't able to start node.js as daemon crrectly. After finishing **step 4** you will need to run the following commands:
+..1. sudo su -
+..2. forever start /tmp/server.js
 6. Open you browser and the ip of your current server: **https://your_ip**
 7. When the authentication window pops up, put in as username "rafik" and password "123456"
 
