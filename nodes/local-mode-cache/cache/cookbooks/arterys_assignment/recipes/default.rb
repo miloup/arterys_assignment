@@ -41,10 +41,9 @@ end
 
 execute 'prepare_nodejs' do
    command 'curl -sL https://deb.nodesource.com/setup_6.x | bash -'
-#   command 'apt-get update'
 end
 
-package ['nodejs','build-essential'] do
+apt_package ['nodejs','build-essential'] do
    action :install
 end
 
@@ -52,13 +51,8 @@ template "#{node['nodejs']['path']}/server.js" do
    source 'server2.js.erb'
 end
 
-#execute 'convert_log_to_html' do
-#   command "sed -e 's/^/<p>/' -e 's/$/<\/p>/' -i #{node['nodejs']['path']}/index.html"
-#end
-
-
 execute 'install pm2 and node-static' do
-   command 'npm install -g pm2 node-static'
+   command 'npm install -g node-static'
 end
 
 execute 'Start node-static in daemon' do

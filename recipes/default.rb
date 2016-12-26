@@ -43,7 +43,7 @@ execute 'prepare_nodejs' do
    command 'curl -sL https://deb.nodesource.com/setup_6.x | bash -'
 end
 
-package ['nodejs','build-essential'] do
+apt_package ['nodejs','build-essential'] do
    action :install
 end
 
@@ -52,7 +52,7 @@ template "#{node['nodejs']['path']}/server.js" do
 end
 
 execute 'install pm2 and node-static' do
-   command 'npm install -g node-static'
+   command 'sudo npm install -g node-static'
 end
 
 execute 'Start node-static in daemon' do
