@@ -41,6 +41,17 @@ When executing **chef-solo**, the cookbook will do the following:
 3. Before running 'chef-solo', you will need to execute the file first_script.sh. This file will put together the necessary information and create the files needed to run 'chef-solo'. Also, make sure the file 'first_script.sh' has execute permission (chmod +x ./first_script.sh)
 4. Run chef-solo as follow: **chef-solo -c ./nodes/solo.rb -j ./nodes/file.json | tee /tmp/output.log**
 5. As explained in the section **Encountered issues**, I wasn't able to start node.js as daemon. You will need to do it manually by becoming root (**sudo su -**), cd to the /tmp folder (**cd /tmp**) and run node.js manually using the command: **nohup node server.js &**
-6. Open you browser and the ip of your current server: **https://some_ip**
+6. Open you browser and the ip of your current server: **https://your_ip**
+7. When the authentication window pops up, put in as username "rafik" and password "123456"
+
+## Questions/Answers
+### Q1: Explain various options available to email the chef-solo log file when the installation is complete.
+Log files in Linux systems are usually sent using MTAs (Mail Transfert Agent). The log file file can be sent as an email body using software such as _postfix_ or as an attachment using software like _mutt_
+
+### Q2: Explain various options available to monitor the system logs on this server remotely.
+There many options to remotly monitor system logs. Some of the famous Linux open-source options to achieve the task are:
+- rsyslog: The server that contains the log sends the file to the remote one.
+- ssh: Ssh from server-A to server-B that contains the log file and view it
+- http: View logs remotly from your browser using http servers such as Nginx or Apache
 
 
