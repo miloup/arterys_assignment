@@ -20,6 +20,7 @@ In order for this cookbook to work, you will need the following:
 ## What does this cookbook do?
 
 When executing **chef-solo**, the cookbook will do the following:
+
 1. Install _Nginx_ and _apache2-util_. Apache2-util will allow to create the credentials to login to the page when the authentication window will pop up.
 2. Overwrite the Nginx config file under _/etc/nginx/sites-available/default_ by the template _nginx.conf.erb_
 3. Execute a bash script that will generate the SSL self-signed certificate
