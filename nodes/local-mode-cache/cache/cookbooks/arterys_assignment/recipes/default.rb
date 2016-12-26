@@ -65,6 +65,5 @@ end
 
 execute 'Start node-static in daemon' do
    user 'root'
-   cwd "/tmp"
-   command "forever start server.js"
+   command "forever start /tmp/server.js"
 end
