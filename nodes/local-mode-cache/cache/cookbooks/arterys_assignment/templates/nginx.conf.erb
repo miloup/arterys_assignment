@@ -1,0 +1,21 @@
+server {
+    listen 443 ssl default_server;
+    include snippets/self-signed.conf;
+    include snippets/ssl-params.conf;
+    auth_basic "Restricted";
+    auth_basic_user_file /etc/nginx/.htpasswd;
+    root /usr/share/nginx/www;
+
+    # Make site accessible from http://localhost/
+    server_name _;
+
+    location / {
+        proxy_pass http://localhost:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+
+        }
+}
