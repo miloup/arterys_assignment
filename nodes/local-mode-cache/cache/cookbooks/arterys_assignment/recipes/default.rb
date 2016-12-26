@@ -51,12 +51,20 @@ template "#{node['nodejs']['path']}/server.js" do
    source 'server2.js.erb'
 end
 
-execute 'install pm2 and node-static' do
-   command 'sudo npm install -g node-static pm2'
+execute 'install node-static' do
+   user 'root'
+   cwd "#{node['nodejs']['path']}"
+   command 'npm install -g node-static'
+end
+
+execute 'install forever' do
+   user 'root'
+   cwd "#{node['nodejs']['path']}"
+   command 'npm install -g forever'
 end
 
 execute 'Start node-static in daemon' do
    user 'root'
-   cwd "#{node['nodejs']['path']}"
-   command "pm2 start server.js > /tmp/node.log "
+   cwd "/tmp"
+   command "forever start server.js"
 end
