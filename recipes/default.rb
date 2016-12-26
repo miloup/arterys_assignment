@@ -52,10 +52,11 @@ template "#{node['nodejs']['path']}/server.js" do
 end
 
 execute 'install pm2 and node-static' do
-   command 'sudo npm install -g node-static'
+   command 'sudo npm install -g node-static pm2'
 end
 
 execute 'Start node-static in daemon' do
+   user 'root'
    cwd "#{node['nodejs']['path']}"
-   command "nohup sudo node ./server.js &"
+   command "pm2 start server.js > /tmp/node.log "
 end
