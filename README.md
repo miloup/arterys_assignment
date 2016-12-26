@@ -41,10 +41,10 @@ When executing **chef-solo**, the cookbook will do the following:
 2. Clone this repo using: **git clone https://github.com/miloup/arterys_assignment.git**
 3. Before running 'chef-solo', you will need to execute the file first_script.sh. This file will put together the necessary information and create the files needed to run 'chef-solo'. Also, make sure the file 'first_script.sh' has execute permission (chmod +x ./first_script.sh)
 4. Run chef-solo as follow: **chef-solo -c ./nodes/solo.rb -j ./nodes/file.json | tee /tmp/output.log**
-5. As explained in the section **Encountered issues**, I wasn't able to start node.js as daemon crrectly. After finishing **step 4** you will need to run the following commands:
+5. As explained in the section **Encountered issues**, I wasn't able to start node.js as daemon correctly. After finishing **step 4** you will need to run the following commands:
   * _sudo su -_
   * _forever start /tmp/server.js_
-6. Open you browser and the ip of your current server: **https://your_ip**
+6. Open you browser and put in the URL bar 'https://' followed by the ip of your current server: **https://your_ip**
 7. When the authentication window pops up, put in as username "rafik" and password "123456"
 
 ## Questions/Answers
