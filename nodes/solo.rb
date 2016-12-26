@@ -1,1 +1,1 @@
-cookbook_path "/home/vagrant/cookbooks"
+cookbook_path "/home/vagrant"
