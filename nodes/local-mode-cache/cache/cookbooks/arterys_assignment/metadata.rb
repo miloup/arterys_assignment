@@ -1,5 +1,0 @@
-name             'arterys_assignment'
-maintainer       'Rafik Benmansour'
-maintainer_email 'raf_ben@hotmail.com'
-license          'All rights reserved'
-version          '0.1.0'
