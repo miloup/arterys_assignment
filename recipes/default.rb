@@ -76,7 +76,7 @@ ruby_block 'HTTP POST' do
      require 'net/http'
      http_res = Net::HTTP.get_response(URI.parse("#{node['http']['post']['url']}"))
      if(http_res.code =~ /2|3\d{2}/ ) then
-        notifies :post, 'http_reques [http_post]', :immediately
+        notifies :post, 'http_request[http_post]', :immediately
      else
         Chef::Log.warn('The URL is not configured for HTTP post. Skipping...')
      end
