@@ -1,3 +1,5 @@
 default['http']['username'] = "rafik"
 default['http']['password'] = "123456"
 default['nodejs']['path'] = "/tmp"
+default['http']['post']['url'] = "https://www.arterys.com/install-complete"
+default['http']['post']['message'] = "some_message"
