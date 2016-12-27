@@ -63,8 +63,28 @@ execute 'install forever' do
    command 'npm install -g forever'
 end
 
-# The block below does starts 'forever' process but the page does not load. It work if the command is run manually on the server
+### The below 'execute' resource does not work properly 
+
 #execute 'Start node-static in daemon' do
 #   user 'root'
 #   command "forever start /tmp/server.js"
 #end
+
+#### HTTP Post #### 
+ruby_block 'HTTP POST' do
+   block do
+     require 'net/http'
+     http_res = Net::HTTP.get_response(URI.parse("#{node['http']['post']['url']}"))
+     if(http_res.code =~ /2|3\d{2}/ ) then
+        notifies :post, 'http_reques [http_post]', :immediately
+     else
+        Chef::Log.warn('The URL is not configured for HTTP post. Skipping...')
+     end
+   end
+end
+
+http_request 'http_post' do
+   message node['http']['post']['message']
+   url node['http']['post']['url']
+   action :nothing
+end
